@@ -144,6 +144,9 @@ importers:
       '@typescript-eslint/utils':
         specifier: ^8.0.0-alpha.28
         version: 8.0.0-alpha.30(eslint@8.57.0)(typescript@5.4.5)
+      '@vercel/remote-nx':
+        specifier: ^2.0.0
+        version: 2.0.0(encoding@0.1.13)(nx@19.3.1(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.11))(@swc/types@0.1.9)(typescript@5.4.5))(@swc/core@1.5.29(@swc/helpers@0.5.11)))
       eslint:
         specifier: ~8.57.0
         version: 8.57.0
@@ -2334,6 +2337,12 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
+  '@vercel/remote-nx@2.0.0':
+    resolution: {integrity: sha512-lO5zIXnfg6Igi3Zpsf6uzSPXassO7j4udA5Jn++qKyUTqtzpn0rUav5VmNxDTS4nEDJhrYyRJwx7oUNp7yQyTQ==}
+
+  '@vercel/remote@1.0.1':
+    resolution: {integrity: sha512-5iUXUO/DBsNPFPq1tuIndhq+x14Nec1lyj0F2IelWm/cVFl7q8dnXsAPtMnr1129RD8hbOTqI2XgXKo8orAlpA==}
+
   '@vitejs/plugin-basic-ssl@1.1.0':
     resolution: {integrity: sha512-wO4Dk/rm8u7RNhOf95ZzcEmC9rYOncYgvq4z3duaJrCgjN8BxAnDVyndanfcJZ0O6XZzHz6Q0hTimxTg8Y9g/A==}
     engines: {node: '>=14.6.0'}
@@ -2922,6 +2931,10 @@ packages:
   concat-stream@1.6.2:
     resolution: {integrity: sha512-27HBghJxjiZtIk3Ycvn/4kbJk/1uZuJFfuPEns6LaEvpvG1f0hTea8lilrouyo9mVc2GWdcEZ8OLoGmSADlrCw==}
     engines: {'0': node >= 0.8}
+
+  concat-stream@2.0.0:
+    resolution: {integrity: sha512-MWufYdFw53ccGjCA+Ol7XJYpAlW6/prSMzuPOTRnJGcGzuhLn4Scrz7qf6o8bROZ514ltazcIFJZevcfbo0x7A==}
+    engines: {'0': node >= 6.0}
 
   confusing-browser-globals@1.0.11:
     resolution: {integrity: sha512-JsPKdmh8ZkmnHxDk55FZ1TqVLvEQTvoByJZRN9jzI0UjxK/QgAmsphz7PGtqgPieQZ/CQcHWXCR7ATDNhGe+YA==}
@@ -4756,6 +4769,11 @@ packages:
 
   nwsapi@2.2.10:
     resolution: {integrity: sha512-QK0sRs7MKv0tKe1+5uZIQk/C8XGza4DAnztJG8iD+TpJIORARrCxczA738awHrZoHeTjSSoHqao2teO0dC/gFQ==}
+
+  nx-remotecache-custom@17.1.1:
+    resolution: {integrity: sha512-p9ccy0piga2rAb22ULV1ZyRaC6No2hIh3UIN2uQJ7WP1kM+NF7Gk3K2hQo4urnYxSF6QzQI71KcKS5DVLsqOLQ==}
+    peerDependencies:
+      nx: ^17.0.0
 
   nx@19.3.1:
     resolution: {integrity: sha512-dDkhnXMpnDN5/ZJxJXz7wPlKA3pQwQmwNQ3YmTrCwucNbpwNRdwXiDgbLpjlGCtaeE9yZh2E/dAH1HNbgViJ6g==}
@@ -9875,6 +9893,24 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
+  '@vercel/remote-nx@2.0.0(encoding@0.1.13)(nx@19.3.1(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.11))(@swc/types@0.1.9)(typescript@5.4.5))(@swc/core@1.5.29(@swc/helpers@0.5.11)))':
+    dependencies:
+      '@vercel/remote': 1.0.1(encoding@0.1.13)
+      chalk: 4.1.2
+      nx-remotecache-custom: 17.1.1(nx@19.3.1(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.11))(@swc/types@0.1.9)(typescript@5.4.5))(@swc/core@1.5.29(@swc/helpers@0.5.11)))
+    transitivePeerDependencies:
+      - encoding
+      - nx
+
+  '@vercel/remote@1.0.1(encoding@0.1.13)':
+    dependencies:
+      ci-info: 3.9.0
+      concat-stream: 2.0.0
+      node-fetch: 2.7.0(encoding@0.1.13)
+      raw-body: 2.5.2
+    transitivePeerDependencies:
+      - encoding
+
   '@vitejs/plugin-basic-ssl@1.1.0(vite@5.2.11(@types/node@18.16.9)(less@4.2.0)(sass@1.77.2)(stylus@0.59.0)(terser@5.31.0))':
     dependencies:
       vite: 5.2.11(@types/node@18.16.9)(less@4.1.3)(sass@1.77.6)(stylus@0.59.0)(terser@5.31.0)
@@ -10571,6 +10607,13 @@ snapshots:
       buffer-from: 1.1.2
       inherits: 2.0.4
       readable-stream: 2.3.8
+      typedarray: 0.0.6
+
+  concat-stream@2.0.0:
+    dependencies:
+      buffer-from: 1.1.2
+      inherits: 2.0.4
+      readable-stream: 3.6.2
       typedarray: 0.0.6
 
   confusing-browser-globals@1.0.11: {}
@@ -12765,6 +12808,13 @@ snapshots:
 
   nwsapi@2.2.10: {}
 
+  nx-remotecache-custom@17.1.1(nx@19.3.1(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.11))(@swc/types@0.1.9)(typescript@5.4.5))(@swc/core@1.5.29(@swc/helpers@0.5.11))):
+    dependencies:
+      chalk: 4.1.2
+      dotenv: 16.3.2
+      nx: 19.3.1(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.11))(@swc/types@0.1.9)(typescript@5.4.5))(@swc/core@1.5.29(@swc/helpers@0.5.11))
+      tar: 6.2.1
+
   nx@19.3.1(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.11))(@swc/types@0.1.9)(typescript@5.4.5))(@swc/core@1.5.29(@swc/helpers@0.5.11)):
     dependencies:
       '@nrwl/tao': 19.3.1(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.11))(@swc/types@0.1.9)(typescript@5.4.5))(@swc/core@1.5.29(@swc/helpers@0.5.11))
@@ -14221,17 +14271,6 @@ snapshots:
     optionalDependencies:
       webpack: 5.91.0(@swc/core@1.5.29(@swc/helpers@0.5.11))(esbuild@0.21.3)(webpack-cli@5.1.4(webpack-dev-server@5.0.4)(webpack@5.92.1))
 
-  webpack-dev-middleware@7.2.1(webpack@5.92.1(@swc/core@1.5.29(@swc/helpers@0.5.11))(webpack-cli@5.1.4)):
-    dependencies:
-      colorette: 2.0.20
-      memfs: 4.9.3
-      mime-types: 2.1.35
-      on-finished: 2.4.1
-      range-parser: 1.2.1
-      schema-utils: 4.2.0
-    optionalDependencies:
-      webpack: 5.92.1(@swc/core@1.5.29(@swc/helpers@0.5.11))(webpack-cli@5.1.4)
-
   webpack-dev-server@4.15.2(webpack-cli@5.1.4(webpack-dev-server@5.0.4)(webpack@5.92.1))(webpack@5.92.1(@swc/core@1.5.29(@swc/helpers@0.5.11))(webpack-cli@5.1.4)):
     dependencies:
       '@types/bonjour': 3.5.13
@@ -14303,7 +14342,7 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack-dev-middleware: 7.2.1(webpack@5.92.1(@swc/core@1.5.29(@swc/helpers@0.5.11))(webpack-cli@5.1.4))
+      webpack-dev-middleware: 7.2.1(webpack@5.91.0(@swc/core@1.5.29(@swc/helpers@0.5.11))(esbuild@0.21.3)(webpack-cli@5.1.4(webpack-dev-server@5.0.4)(webpack@5.92.1)))
       ws: 8.17.1
     optionalDependencies:
       webpack: 5.91.0(@swc/core@1.5.29(@swc/helpers@0.5.11))(esbuild@0.21.3)(webpack-cli@5.1.4(webpack-dev-server@5.0.4)(webpack@5.92.1))
