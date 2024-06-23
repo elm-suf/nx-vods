@@ -1,4 +1,5 @@
 {
+  "buildCommand": "nx build client --prod",
   "builds": [
     {
       "src": "dist/apps/client/*",
