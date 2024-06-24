@@ -2,6 +2,7 @@ import { RouterModule } from '@angular/router';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,5 +15,5 @@ import { HttpClient } from '@angular/common/http';
   </main>`,
 })
 export class AppComponent {
-  ping$ = inject(HttpClient).get('/api');
+  ping$ = inject(HttpClient).get(environment.apiUrl);
 }
